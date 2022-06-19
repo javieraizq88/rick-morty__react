@@ -1,17 +1,61 @@
 export default function Characters(props) {
-    const { characters } = props;
+    const { characters, setCharacters } = props;
+  console.log(characters)
 
+    const resetCharacter = () =>{
+   setCharacters(null)
+    }
     return (
         <div className="character">
             <h1>Personajes</h1>
-            <span>volver al home</span>
+            <span className="back-home" onClick={resetCharacter}>Volver al home</span>
             <div className="container-characters">
                 {characters.map((character, index) => (
                     <div className="character-container" key={index}>
-                        <p>{character.name} </p>
+                        <div>
+                            <img src={character.image} alt={character.name} />
+                        </div>
+                        <div>
+                            <h3>{character.name}</h3>
+                            <h6>
+                                {character.status === "Alive" ? (
+                                    <>
+                                        <span className="alive" />
+                                        Alive
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="dead" />
+                                        Dead
+                                    </>
+                                )}
+
+                            </h6>
+                            <p >
+                                <span className="text-grey">Episodios: </span>
+                                {character.episode.length}
+                            </p>
+                            <p>
+                                <span className="text-grey">Especie: </span>
+                                {character.species}
+                            </p>
+                            <p>
+                                <span className="text-grey">Género: </span>
+                                {character.gender}
+                            </p>
+                            <p>
+                                <span className="text-grey">Ubicación: </span>
+                                {character.location.name}
+                            </p>
+                            <p>
+                                <span className="text-grey">Origen: </span>
+                                {character.origin.name}
+                            </p>
+                        </div>
                     </div>
                 ))}
             </div>
+            <span className="back-home" onClick={resetCharacter}>Volver al home</span>
         </div>
     )
 }
