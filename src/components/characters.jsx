@@ -1,9 +1,9 @@
 export default function Characters(props) {
     const { characters, setCharacters } = props;
-    // console.log(characters)
+  console.log(characters)
 
     const resetCharacter = () =>{
-   setCharacters(null);
+   setCharacters(null)
     }
     return (
         <div className="character">
@@ -38,6 +38,18 @@ export default function Characters(props) {
                             <p>
                                 <span className="text-grey">Especie: </span>
                                 {character.species}
+                            </p>
+                            <p>
+                                <span className="text-grey">Género: </span>
+                                {character.gender}
+                            </p>
+                            <p>
+                                <span className="text-grey">Ubicación: </span>
+                                {character.location.name}
+                            </p>
+                            <p>
+                                <span className="text-grey">Origen: </span>
+                                {character.origin.name}
                             </p>
                         </div>
                     </div>
