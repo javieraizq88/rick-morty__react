@@ -23,7 +23,7 @@ function App() {
        {/* si tengo algo en character, me muestra los characters */}
        {/* si no tengo nada en characters, me muestra la img + btn del home */}
         {characters ? (
-          <Characters characters={characters} />
+          <Characters characters={characters} setCharacters={setCharacters} />
         ) : (
           <>
             <img src={logo} className="img-home" alt="Rick & Morty" />
